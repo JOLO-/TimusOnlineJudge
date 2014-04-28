@@ -33,20 +33,16 @@ public class ProductOfDigits {
      * @return
      */
     protected static int getResult(int number) {
+        if (number == 0) return 0;
+        if (number == 1) return 1;
         List<Integer> result = new LinkedList<Integer>();
-        System.out.println("before factoring");
         List<Integer> factorials = factoring(number);
-        System.out.println("number: " + number);
-        System.out.println("factorials: " + factorials);
-        System.out.println("after factoring");
         while (!factorials.isEmpty()) {
-            System.out.println("Enter while loop");
             int next = -1;
             for (int i = 0; i < factorials.size() && factorials.get(i) < 10; i++) next = factorials.get(i);
             if (next != -1) {
                 result.add(0, next);
                 number = number / next;
-                System.out.println("factoring(" +  (int)(number) + ")");
                 factorials = factoring(number);
             } else  {
                 throw new IllegalStateException("Can represent those number as product of numbers. " +

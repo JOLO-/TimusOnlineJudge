@@ -30,6 +30,8 @@ public class ProductOfDigitsTest {
 
     @Test
     public void getResult_test() {
+        assertEquals(0, ProductOfDigits.getResult(0));
+        assertEquals(1, ProductOfDigits.getResult(1));
         assertEquals(25, ProductOfDigits.getResult(10));
     }
 }
