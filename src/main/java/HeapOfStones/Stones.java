@@ -1,3 +1,5 @@
+package HeapOfStones;
+
 import java.io.*;
 import java.util.*;
 

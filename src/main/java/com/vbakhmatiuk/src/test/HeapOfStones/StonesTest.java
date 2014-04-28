@@ -1,3 +1,4 @@
+import HeapOfStones.Stones;
 import junit.framework.Assert;
 import org.junit.Test;
 
