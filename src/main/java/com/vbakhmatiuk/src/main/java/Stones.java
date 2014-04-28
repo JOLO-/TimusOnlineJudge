@@ -21,7 +21,7 @@ public class Stones {
         int sum = sum(array);
         int med = sum / 2;
         int optimalSum = getOptimalSum(array, med);
-        int answer = sum - 2 * optimalSum;
+        int answer = Math.abs(sum - 2 * optimalSum);
         return answer;
     }
 
@@ -48,7 +48,7 @@ public class Stones {
     }
 
     /**
-     * Find the most close to {@code arrayMedian} summary of the array's elements
+     * Find the most close but less than {@code arrayMedian} summary of the array's elements
      *
      * @param array
      * @param arrayMedian  equals {@sum}/2, where {@code sum} equals to the summary of all array elements
@@ -61,9 +61,7 @@ public class Stones {
 
         int nextSum = currentSum + array[currentIndex];
 
-        if (currentIndex == 0) {
-            return getOptimalSum(array, arrayMedian, nextSum, currentIndex + 1);
-        } else if (nextSum > arrayMedian) { //just skip current element
+        if (nextSum > arrayMedian) { //just skip current element
             return getOptimalSum(array, arrayMedian, currentSum, currentIndex + 1);
         } else if (nextSum == arrayMedian) { //we find the median!
             return arrayMedian;
