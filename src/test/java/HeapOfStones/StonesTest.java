@@ -1,8 +1,8 @@
 package HeapOfStones;
 
-import HeapOfStones.Stones;
-import junit.framework.Assert;
 import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class StonesTest {
 
@@ -15,12 +15,12 @@ public class StonesTest {
         Integer[] array5 = new Integer[] {24};
         Integer[] array6 = new Integer[] {95, 24};
 
-        Assert.assertEquals(29, Stones.getOptimalSum(array1));
-        Assert.assertEquals(32, Stones.getOptimalSum(array2));
-        Assert.assertEquals(20, Stones.getOptimalSum(array3));
-        Assert.assertEquals(34, Stones.getOptimalSum(array4));
-        Assert.assertEquals(0, Stones.getOptimalSum(array5));
-        Assert.assertEquals(24, Stones.getOptimalSum(array6));
+        assertEquals(29, Stones.getOptimalSum(array1));
+        assertEquals(32, Stones.getOptimalSum(array2));
+        assertEquals(20, Stones.getOptimalSum(array3));
+        assertEquals(34, Stones.getOptimalSum(array4));
+        assertEquals(0, Stones.getOptimalSum(array5));
+        assertEquals(24, Stones.getOptimalSum(array6));
     }
 
     @Test
@@ -32,11 +32,11 @@ public class StonesTest {
         Integer[] array5 = new Integer[] {24};
         Integer[] array6 = new Integer[] {95, 24};
 
-        Assert.assertEquals(0, Stones.calcDifference(array1));
-        Assert.assertEquals(3, Stones.calcDifference(array2));
-        Assert.assertEquals(0, Stones.calcDifference(array3));
-        Assert.assertEquals(1, Stones.calcDifference(array4));
-        Assert.assertEquals(24, Stones.calcDifference(array5));
-        Assert.assertEquals(71, Stones.calcDifference(array6));
+        assertEquals(0, Stones.calcDifference(array1));
+        assertEquals(3, Stones.calcDifference(array2));
+        assertEquals(0, Stones.calcDifference(array3));
+        assertEquals(1, Stones.calcDifference(array4));
+        assertEquals(24, Stones.calcDifference(array5));
+        assertEquals(71, Stones.calcDifference(array6));
     }
 }
