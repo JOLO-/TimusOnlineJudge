@@ -1,37 +1,29 @@
 package ProductOfDigits;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.TestCase.assertFalse;
 
 public class ProductOfDigitsTest {
 
     @Test
-    public void factoring_test() {
-        List<Integer> list1 = new LinkedList<Integer>() {{
-            add(2);
-            add(5);
-            add(10);
-        }};
-        assertEquals(list1, ProductOfDigits.factoring(10));
-
-        List<Integer> list2 = new LinkedList<Integer>() {{
-            add(2); add(3); add(5); add(6); add(7);
-            add(10); add(14); add(15); add(21); add(30);
-            add(35); add(42); add(70); add(105); add(210);
-        }};
-        assertEquals(list2, ProductOfDigits.factoring(210));
-    }
-
-    @Test
+    @Ignore
     public void getResult_test() {
-        assertEquals(0, ProductOfDigits.getResult(0));
-        assertEquals(1, ProductOfDigits.getResult(1));
-        assertEquals(25, ProductOfDigits.getResult(10));
+        assertEquals(new Long(-1), ProductOfDigits.getQForN(997));
+        assertEquals(new Long(10), ProductOfDigits.getQForN(0));
+        assertEquals(new Long(1), ProductOfDigits.getQForN(1));
+        assertEquals(new Long(2), ProductOfDigits.getQForN(2));
+        assertEquals(new Long(3), ProductOfDigits.getQForN(3));
+        assertEquals(new Long(4), ProductOfDigits.getQForN(4));
+        assertEquals(new Long(25), ProductOfDigits.getQForN(10));
+        assertEquals(new Long(26), ProductOfDigits.getQForN(12));
+        assertEquals(new Long(457), ProductOfDigits.getQForN(140));
+        assertEquals(new Long(2578899), ProductOfDigits.getQForN(362880));
+        assertEquals(new Long("555555555888"), ProductOfDigits.getQForN(1000000000));
+
     }
 }
