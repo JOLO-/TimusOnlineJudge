@@ -1,5 +1,6 @@
 package PhoneNumbers;
 
+import junit.framework.Assert;
 import mockit.Mock;
 import mockit.MockUp;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import java.util.*;
 public class PhoneNumbersTest {
 
     @Test
-    public void doPhoneNumbers_test() {
+    public void doPhoneNumbers_test1() {
         new MockUp<Scanner>() {
             private String[] inputs = new String[] {"7325189087", "it", "your", "reality", "real", "our"};
             private int currIndex = 0;
@@ -31,15 +32,63 @@ public class PhoneNumbersTest {
         };
 
         new MockUp<PrintWriter>() {
+
+            private StringBuilder contentToFlush = new StringBuilder();
+
             @SuppressWarnings("unused")
             @Mock(invocations = 3)
             public void print(String s) {
-                System.out.print(s);
+                contentToFlush.append(s);
             }
 
             @SuppressWarnings("unused")
             @Mock(invocations = 1)
-            public void flush() {}
+            public void flush() {
+                String content = contentToFlush.toString();
+                assertEquals("real it your", content);
+                System.out.println(content);
+            }
+        };
+
+        PhoneNumbers.doPhoneNumbers();
+    }
+
+    @Test
+    public void doPhoneNumbers_test2() {
+        new MockUp<Scanner>() {
+            private String[] inputs = new String[] {"77123237213", "price", "be", "paid", "your", "another", "fault", "destiny"};
+            private int currIndex = 0;
+
+            @SuppressWarnings("unused")
+            @Mock(invocations = 8)
+            public String next() {
+                return (currIndex < inputs.length) ? inputs[currIndex++] : null;
+            }
+
+            @SuppressWarnings("unused")
+            @Mock(invocations = 1)
+            public int nextInt() {
+                return 7;
+            }
+        };
+
+        new MockUp<PrintWriter>() {
+
+            private StringBuilder contentToFlush = new StringBuilder();
+
+            @SuppressWarnings("unused")
+            @Mock(invocations = 3)
+            public void print(String s) {
+                contentToFlush.append(s);
+            }
+
+            @SuppressWarnings("unused")
+            @Mock(invocations = 1)
+            public void flush() {
+                String content = contentToFlush.toString();
+                assertEquals("price be paid", content);
+                System.out.println(content);
+            }
         };
 
         PhoneNumbers.doPhoneNumbers();
